@@ -1,0 +1,14 @@
+[
+  {
+    "id": "1",
+    "name": "My first campaign",
+    "description": "This is a Twitter campaign for Twitter",
+    "posts": []
+  },
+  {
+    "id": "2",
+    "name": "My second campaign",
+    "description": "This is an Instagram campaign for Instagram",
+    "posts": []
+  }
+]
