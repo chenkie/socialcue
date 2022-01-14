@@ -4,12 +4,11 @@ import { useMutation } from 'react-query';
 import Button from '../components/Button';
 import FormGroup from '../components/FormGroup';
 import SideModal from '../components/SideModal';
-import { CampaignResult } from '../lib/types';
 
 interface AddCampaignModalProps {
   isOpen: boolean;
   onClose: () => void;
-  onCampaignAddSuccess: (result: CampaignResult) => void;
+  onCampaignAddSuccess: (result: any) => void;
   onCampaignAddError: (err: string) => void;
 }
 

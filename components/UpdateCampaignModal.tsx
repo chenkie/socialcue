@@ -1,17 +1,15 @@
 import { CheckIcon } from '@heroicons/react/outline';
-import { Campaign } from '@prisma/client';
 import { useForm } from 'react-hook-form';
 import { useMutation } from 'react-query';
-import { CampaignResult } from '../lib/types';
 import Button from './Button';
 import FormGroup from './FormGroup';
 import SideModal from './SideModal';
 
 interface UpdateCampaignModalProps {
-  campaign: Campaign;
+  campaign: any;
   isOpen: boolean;
   onClose: () => void;
-  onCampaignUpdateSuccess: (result: CampaignResult) => void;
+  onCampaignUpdateSuccess: (result: any) => void;
   onCampaignUpdateError: (err: string) => void;
 }
 

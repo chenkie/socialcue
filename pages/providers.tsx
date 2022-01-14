@@ -1,5 +1,4 @@
 import { ChatAlt2Icon } from '@heroicons/react/outline';
-import { GetServerSideProps } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
 import { useState } from 'react';
@@ -10,18 +9,9 @@ import ResourceAction from '../components/ResourceAction';
 import ResourceCard from '../components/ResourceCard';
 import UpdateProviderModal from '../components/UpdateProviderModal';
 import { providerOptions } from '../lib/providers';
-import { prisma } from './../db';
+import providers from './../lib/data/providers.json';
 
-export const getServerSideProps: GetServerSideProps = async () => {
-  const providers = await prisma.provider.findMany();
-  return {
-    props: {
-      providers: JSON.parse(JSON.stringify(providers))
-    }
-  };
-};
-
-const Providers = ({ providers }) => {
+const Providers = () => {
   const [socialProviders, setSocialProviders] = useState(providers);
   const [addProviderOpen, setAddProviderOpen] = useState(false);
   const [providerToEdit, setProviderToEdit] = useState(null);

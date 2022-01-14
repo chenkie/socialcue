@@ -1,9 +1,7 @@
 import { CheckIcon } from '@heroicons/react/outline';
-import { Campaign, Provider } from '@prisma/client';
 import { useForm } from 'react-hook-form';
 import { useMutation } from 'react-query';
 import Select from 'react-select';
-import { PostResult } from '../lib/types';
 import { getPublishAtTime } from '../lib/util';
 import Button from './Button';
 import FormGroup from './FormGroup';
@@ -15,10 +13,10 @@ interface AddPostModalProps {
   isOpen: boolean;
   date: Date;
   onClose: () => void;
-  onAddPostSuccess: (result: PostResult) => void;
+  onAddPostSuccess: (result: any) => void;
   onAddPostError: (err: string) => void;
-  providers: Provider[];
-  campaigns: Campaign[];
+  providers: any[];
+  campaigns: any[];
 }
 
 const AddPostModal = (props: AddPostModalProps) => {

@@ -6,14 +6,13 @@ import Button from '../components/Button';
 import ProviderOptionLabel from '../components/ProviderOptionLabel';
 import SideModal from '../components/SideModal';
 import { ProviderOption } from '../lib/providers';
-import { ProviderResult } from '../lib/types';
 import FormGroup from './FormGroup';
 
 interface AddProviderModalProps {
   isOpen: boolean;
   providerOptions: ProviderOption[];
   onClose: () => void;
-  onProviderAddSuccess: (result: ProviderResult) => void;
+  onProviderAddSuccess: (result: any) => void;
   onProviderAddError: (err: string) => void;
 }
 

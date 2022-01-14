@@ -1,10 +1,8 @@
 import { CheckIcon } from '@heroicons/react/outline';
-import { Provider } from '@prisma/client';
 import { useForm } from 'react-hook-form';
 import { useMutation } from 'react-query';
 import Select from 'react-select';
 import { ProviderOption } from '../lib/providers';
-import { ProviderResult } from '../lib/types';
 import Button from './Button';
 import FormGroup from './FormGroup';
 import ProviderOptionLabel from './ProviderOptionLabel';
@@ -12,10 +10,10 @@ import SideModal from './SideModal';
 
 interface UpdateProviderModalProps {
   isOpen: boolean;
-  provider: Provider;
+  provider: any;
   providerOptions: ProviderOption[];
   onClose: () => void;
-  onProviderUpdateSuccess: (result: ProviderResult) => void;
+  onProviderUpdateSuccess: (result: any) => void;
   onProviderUpdateError: (err: string) => void;
 }
 

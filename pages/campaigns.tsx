@@ -9,32 +9,9 @@ import AddCampaignModal from '../components/AddCampaignModal';
 import ResourceAction from '../components/ResourceAction';
 import ResourceCard from '../components/ResourceCard';
 import UpdateCampaignModal from '../components/UpdateCampaignModal';
-import { prisma } from './../db';
+import campaignsData from './../lib/data/campaigns.json';
 
-export const getServerSideProps: GetServerSideProps = async () => {
-  const campaigns = await prisma.campaign.findMany({
-    include: {
-      posts: {
-        where: {
-          publishAt: {
-            gte: new Date()
-          }
-        },
-        select: {
-          id: true
-        }
-      }
-    }
-  });
-
-  return {
-    props: {
-      campaignsData: JSON.parse(JSON.stringify(campaigns))
-    }
-  };
-};
-
-const Campaigns = ({ campaignsData }) => {
+const Campaigns = () => {
   const [campaigns, setCampaigns] = useState(campaignsData);
   const [addCampaignOpen, setAddCampaignOpen] = useState(false);
   const [campaignForEdit, setCampaignForEdit] = useState(null);

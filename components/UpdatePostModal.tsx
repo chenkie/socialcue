@@ -1,5 +1,4 @@
 import { CheckIcon, TrashIcon } from '@heroicons/react/outline';
-import { Campaign, Post, Provider } from '@prisma/client';
 import { useForm } from 'react-hook-form';
 import { useMutation } from 'react-query';
 import Select from 'react-select';
@@ -7,18 +6,17 @@ import Button from '../components/Button';
 import FormGroup from '../components/FormGroup';
 import ProviderOptionLabel from '../components/ProviderOptionLabel';
 import SideModal from '../components/SideModal';
-import { PostResult } from '../lib/types';
 import { getPublishAtTime, getTime } from '../lib/util';
 import TimeInput from './TimeInput';
 
 interface UpdatePostModalProps {
-  post: Post & { provider: Provider; campaigns: Campaign[] };
-  providers: Provider[];
-  campaigns: Campaign[];
+  post: any;
+  providers: any[];
+  campaigns: any[];
   onClose: () => void;
-  onUpdatePostSuccess: (result: PostResult) => void;
+  onUpdatePostSuccess: (result: any) => void;
   onUpdatePostError: (err: string) => void;
-  onDeletePostSuccess: (result: PostResult) => void;
+  onDeletePostSuccess: (result: any) => void;
   onDeletePostError: (err: string) => void;
 }
 

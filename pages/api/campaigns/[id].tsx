@@ -1,10 +1,8 @@
-import { Campaign } from '@prisma/client';
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { prisma } from './../../../db';
 
 type ResponseData = {
   message: string;
-  data?: Campaign;
+  data?: any;
 };
 
 export default async (
@@ -19,20 +17,7 @@ export default async (
 
   if (req.method === 'PATCH') {
     try {
-      const { name, description } = JSON.parse(req.body);
-
-      const campaign = await prisma.campaign.update({
-        where: { id: id as string },
-        data: {
-          name,
-          description,
-          updatedAt: new Date()
-        }
-      });
-
-      return res
-        .status(200)
-        .json({ message: 'Campaign updated!', data: campaign });
+      return res.status(200).json({ message: 'Campaign updated!', data: null });
     } catch (err) {
       return res.status(400).json({ message: 'Something went wrong' });
     }
@@ -40,13 +25,7 @@ export default async (
 
   if (req.method === 'DELETE') {
     try {
-      const campaign = await prisma.campaign.delete({
-        where: { id: id as string }
-      });
-
-      return res
-        .status(200)
-        .json({ message: 'Campaign deleted!', data: campaign });
+      return res.status(200).json({ message: 'Campaign deleted!', data: null });
     } catch (err) {
       return res.status(400).json({ message: 'Something went wrong' });
     }
