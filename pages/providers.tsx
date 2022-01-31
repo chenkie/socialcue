@@ -1,4 +1,5 @@
 import { ChatAlt2Icon } from '@heroicons/react/outline';
+import { GetServerSideProps } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
 import { useState } from 'react';
